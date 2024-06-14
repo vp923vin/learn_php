@@ -1,9 +1,16 @@
+<details>
+<summary>
 Que. What is Laravel Framework?
+</summary>
 Ans. Laravel is an open-source PHP web application framework. It is a very well documented, 
      expressive, and easy to learn framework. Laravel is very developer-friendly as the framework 
      can help beginners as well as advanced users. 
+</details>
 
+<details>
+<summary>
 Que. What are migrations in Laravel?
+</summary>
 Ans. Migrations are used to create database schemas in Laravel.
     `PHP artisan migrate` to run migrations in Laravel FROM root directory.
     The up() method runs when we run `php artisan migrate` and down() method runs when we run `php artisan migrate:rollback`.
@@ -32,11 +39,19 @@ Ans. Migrations are used to create database schemas in Laravel.
             }
         }
     ?>
+</details>
 
+<details>
+<summary>
 Que. What is the latest Laravel version?
+</summary>
 Ans. version 11.
+</details>
 
+<details>
+<summary>
 Que. What is Models?
+</summary>
 Ans. A model file which can be used to interact with that table.
     `php artisan make:model Post` to create a Post model.
     A Model can have properties like table, fillable, hidden, etc which defines properties of the table and model.
@@ -46,8 +61,12 @@ Ans. A model file which can be used to interact with that table.
         protected $fillable = [];
         protected $hidden = [];
     }
+</details>
 
+<details>
+<summary>
 Que. How to implement soft delete in Laravel?
+</summary>
 Ans. Soft Delete means when any data row is deleted by any means in the database, 
     we are not deleting the data but adding a timestamp of deletion.
     We can add soft delete features by adding a trait in the model file like below.
@@ -68,13 +87,16 @@ Ans. Soft Delete means when any data row is deleted by any means in the database
     }
 
     and for use you can use Eloquent\Model delete() method.
+</details>
 
+<details>
+<summary>
 Que. What are factories in Laravel?
+</summary>
 Ans. Factories are a way to put values in fields of a particular model automatically. 
     Like, for testing when we add multiple fake records in the database, we can use factories 
     to generate a class for each model and put data in fields accordingly.
     
+</details>
 
-
-    
     
