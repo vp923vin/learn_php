@@ -47,7 +47,7 @@
     <summary>
         Que. What is the latest Laravel version?
     </summary>
-    
+
     Ans. version 11.
 </details>
 
@@ -213,38 +213,128 @@ Ans. Seeders in Laravel are used to put data in the database tables automaticall
 
 
 <details>
-<summary>
-Que. 
-</summary>
+    <summary>
+    Que. How to put Laravel applications in maintenance mode?
+    </summary>
+
+    Ans. Maintenance mode is used to put a maintenance page to customers and under the hood, 
+        we can do software updates, bug fixes, etc. Laravel applications can be put into maintenance 
+        mode using the below command:
+
+        php artisan down
+
+        And can put the application again on live using the below command:
+
+        php artisan up
+
+</details>
+
+<details>
+    <summary>
+        Que. Can we use Laravel for Full Stack Development (Frontend + Backend)?
+    </summary>
+    Ans. Laravel is the best choice to make progressive, scalable full-stack web applications. 
+        Full-stack web applications can have a backend in laravel and the frontend can be made using blade 
+        files or SPAs using Vue.js as it is provided by default. But it can also be used to just provide rest 
+        APIs to a SPA application.
+</details>
+
+<details>
+    <summary>
+        Que. How to define environment variables in Laravel?
+    </summary>
+    Ans. The environment variables can be defined in the .env file in the project directory. 
+        A brand new laravel application comes with a .env.example and while installing we copy this file and 
+        rename it to .env and all the environment variables will be defined here.
+
+        Some of the examples of environment variables are APP_ENV, DB_HOST, DB_PORT, etc.
+
+</details>
+
+<details>
+    <summary>
+        Que. What is an artisan?
+    </summary>
+    Ans. Artisan is the command-line tool for Laravel to help the developer build the application. 
+        You can enter the below command to get all the available commands:
+
+        PHP artisan list: Artisan command can help in creating the files using the make command. 
+        Some of the useful make commands are listed below:
+
+        php artisan make:controller - Make Controller file
+
+        php artisan make:model - Make a Model file
+
+        php artisan make:migration - Make Migration file
+
+        php artisan make:seeder - Make Seeder file
+
+        php artisan make:factory - Make Factory file
+
+        php artisan make:policy - Make Policy file
+
+        php artisan make:command - Make a new artisan Command
+
+</details>
+
+<details>
+    <summary>
+        Que. What are available databases supported by Laravel?
+    </summary>
+    Ans. The supported databases in laravel are:
+        PostgreSQL
+        SQL Server
+        SQLite
+        MySQL
+</details>
+
+<details>
+    <summary>
+        Que. What is the templating engine used in Laravel?
+    </summary>
+    Ans. The templating engine used in Laravel is Blade. The blade gives the ability to use its mustache-like syntax 
+        with the plain PHP and gets compiled into plain PHP and cached until any other change happens in the blade file.
+        The blade file has .blade.php extension.
 </details>
 
 <details>
 <summary>
+    Que. Define Composer.
 </summary>
-</details>
+    Ans. Composer is the package manager for the framework. It helps in adding new packages from 
+        the huge community into your laravel application.
 
-<details>
-<summary>
-</summary>
-</details>
+        For example, one of the most used packages for authentication will be Passport, for including 
+        that into your project, you can run the below command on your terminal:
 
-<details>
-<summary>
-</summary>
-</details>
+        composer requires laravel/passport
 
-<details>
-<summary>
-</summary>
+        {
+            "name": "laravel/laravel",
+            "type": "project",
+            "description": "The Laravel Framework.",
+            "keywords": [
+                "framework",
+                "laravel"
+            ],
+            "license": "MIT",
+            "require": {
+                "php": "^7.3|^8.0",
+                "fideloper/proxy": "^4.4",
+                "fruitcake/laravel-cors": "^2.0",
+                "guzzlehttp/guzzle": "^7.0.1",
+                "laravel/framework": "^8.12",
+                "laravel/tinker": "^2.5"
+            },
+            "require-dev": {
+                "facade/ignition": "^2.5",
+                "fakerphp/faker": "^1.9.1",
+                "laravel/sail": "^1.0.1",
+                "mockery/mockery": "^1.4.2",
+                "nunomaduro/collision": "^5.0",
+                "phpunit/phpunit": "^9.3.3"
+            }
+        }
+        The “require” and “require-dev” keys in composer.json specify production and dev packages and 
+        their version constraints respectively.
 </details>
-
-<details>
-<summary>
-</summary>
-</details>
-
-<details>
-<summary>
-</summary>
-</details>
-    
