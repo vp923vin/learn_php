@@ -6,7 +6,7 @@
 
 
 //  refrence variable  
-
+declare(strict_types=1);
 $x = 5;
 $y = $x;
 $x = 4;
@@ -107,6 +107,53 @@ echo $lang; // its like switch case but better version
 function demo() : void {  
     return;   // function is return value is defined  : void, you can use int|flaot|array or mixed these are the eg.
 }
+
+
+// declare(strict_types=1);  // this must be first statement in the page.
+function speak(string $name): string 
+{
+    return "Hello {$name}!";
+}
+// speak(1); // This fires the error "Uncaught TypeError"
+speak("Valerio"); // This prints "Hello Valerio!"
+
+// require, require_once, include, include_once differences
+
+// require_once, include_once: this will include file one time not multiple times
+// require, include: this will include file multiple times.
+
+// include, require
+// diff: require will stop the execution of the script after the error occurs but include will not stop the execution.
+
+// spread operator
+$ary = [3, 4, 5];
+$new = [1, 2, ...$ary, 6];
+var_dump($new);
+
+
+// function definitions with type 
+// function sumAll(int $x, float $y): int|float {
+//     $val = (string) $x + $y;
+//     return $val;
+// }
+
+// $x = 8;
+// $y = 6.5;
+// echo sumAll($x, $y);
+
+// function definitions with name arguments 
+// i.e. passing arguments in any order
+
+// example of named arguments
+function sumNums(int $x, int $y): int|float {
+    echo "{$x}, ${y}\n";
+    $val = $x + $y;
+    return $val;
+}
+
+$x = 8;
+$y = 6;
+echo sumNums(y: $x, x: $y);
 
 ?>
 
