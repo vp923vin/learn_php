@@ -41,7 +41,8 @@ echo gettype(STATUS);  // get the type of variable.
 echo "\n";
 var_dump(is_bool(STATUS)); // boolean check
 
-$x = 20_000;  // from 7.4 this is added in number that it ignores underscore and its more readable for big numbers.
+$x = 20_000;  // from 7.4 this is added in number that it ignores underscore 
+// and its more readable for big numbers.
 echo $x;
 
 $text = <<<HTML
@@ -105,7 +106,8 @@ echo $lang; // its like switch case but better version
 // funnctions and return values expected definitions
 
 function demo() : void {  
-    return;   // function is return value is defined  : void, you can use int|flaot|array or mixed these are the eg.
+    return;   // function is return value is defined  : void, 
+    // you can use int|flaot|array or mixed these are the eg.
 }
 
 
@@ -123,7 +125,8 @@ speak("Valerio"); // This prints "Hello Valerio!"
 // require, include: this will include file multiple times.
 
 // include, require
-// diff: require will stop the execution of the script after the error occurs but include will not stop the execution.
+// diff: require will stop the execution of the script after the error occurs 
+// but include will not stop the execution.
 
 // spread operator
 $ary = [3, 4, 5];
