@@ -88,5 +88,25 @@ foreach ($proLan as $key => &$value) {
 echo "\n";
 $value = "MySQL";
 print_r($proLan);
+
+echo "\n";
+// match expression php above version 8
+$status = '';
+$lang = match ($status) {
+    1 => "sql",
+    2 => "php",
+    3 => "javascript",
+    4 => "python",
+    default => "mysql",
+};
+echo $lang; // its like switch case but better version
+
+
+// funnctions and return values expected definitions
+
+function demo() : void {  
+    return;   // function is return value is defined  : void, you can use int|flaot|array or mixed these are the eg.
+}
+
 ?>
 
