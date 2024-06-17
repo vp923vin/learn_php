@@ -68,26 +68,99 @@
     <summary>
         Que. How to use the updateOrInsert() method in Laravel Query?
     </summary>
-    Ans.
+    Ans. DB::table(‘blogs’)->updateOrInsert([Conditions],[fields with value]);
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. How to check if a column exists or not in a table?
     </summary>
-    Ans.
+    Ans. 
+        <img src="./asset/column-check.png" alt="column-check">
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. Explain what are gates in Laravel?
     </summary>
-    Ans.
+    Ans. Laravel gates are an essential part of the application’s authorization process. 
+        They serve as mechanisms to determine if a user has the necessary permissions to perform a specific action. 
+        These gates are defined using the Gate facade in the AuthServiceProvider. They use callback functions 
+        to express the authorization logic in a simple and concise manner.<br>
+        Laravel development services use Gates throughout the website or application to check user authorization. 
+        Each Gate is responsible for evaluating a single action, making it possible to evaluate multiple user abilities.
+        This feature of Laravel gates enhances app security and control through precise access control based on 
+        user roles and permissions.<br>
+        How to use gate: <br>
+        create a Gate: <br>
+        php artisan make:gate YourGateName
+        <br>
+        Define Authorization Logic: <br>
+
+        <?php
+            namespace App\Providers;
+            use Illuminate\Support\Facades\Gate;
+            class YourGateName
+            {
+                public function boot()
+                {
+                    $this->registerPolicies();
+                    Gate::define('your-gate-name', function ($user, $parameter) {
+                        // Logic to determine if the user can perform the action
+                        return /* Your authorization logic here */;
+                    });
+                }
+            }
+        ?>
+<br>
+        Register the Gate:<br>
+
+        use App\Providers\YourGateName;
+        class AuthServiceProvider extends ServiceProvider
+        {
+            protected $policies = [
+                // Your model policies here
+            ];
+            public function boot()
+            {
+                $this->registerPolicies();
+                $this->registerGates();
+            }
+            public function registerGates()
+            {
+                Gate::class('your-gate-name', YourGateName::class);
+            }
+        }
+<br>
+        Use the Gate in Controller or Middleware: <br>
+
+        public function someControllerMethod()
+        {
+            if (Gate::allows('your-gate-name', $parameter)) {
+                // Logic to perform when the gate allows the action
+            } else {
+                // Logic for denied access
+            }
+        }
+<br>
+        Use the Gate in Blade Views: <br>
+
+        @can('your-gate-name', $parameter)
+            <!-- Content for authorized users -->
+        @else
+            <!-- Content for unauthorized users -->
+        @endcan
+<br>
+        Pass Additional Parameters:
+
+        Gate::allows('your-gate-name', [$parameter1, $parameter2]);
+
+
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. 
     </summary>
     Ans.
 </details>
