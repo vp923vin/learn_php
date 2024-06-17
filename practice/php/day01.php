@@ -44,6 +44,49 @@ var_dump(is_bool(STATUS)); // boolean check
 $x = 20_000;  // from 7.4 this is added in number that it ignores underscore and its more readable for big numbers.
 echo $x;
 
+$text = <<<HTML
+<p>hello</p>
+HTML;
 
+echo $text;
+
+
+// indexed arrays
+$val = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// associative arrays
+$newVal = [ "a" => 1, "b" => 2, "c" => 3, "d" => 4, "e" => 5];
+
+echo $val[0];
+echo $newVal["a"];
+
+echo "\n";
+// implode functon
+
+$proLang = [
+    "name" => "vipin patel",
+    'email' => "vp@gmail.com",
+    'prolangs' => ["php", "javascript", "python", "sql"],
+];
+
+foreach($proLang as $key => $val){
+    if(is_array($val)){
+        echo "${key}: " . implode(", ", $val) . "\n";
+    }else{
+        echo "${key}: {$val} \n";
+    }
+}
+
+// $value and &$value  has differece of references
+// $value will not have the reference and it will not effect the original value of the array.
+// &$value will effect the original value of the array beacuse it has the reference utill you unset.
+
+$proLan = ["php", "javascript", "python", "sql"];
+foreach ($proLan as $key => &$value) {  
+    echo "${key}: {$value} \n";
+}
+echo "\n";
+$value = "MySQL";
+print_r($proLan);
 ?>
 
