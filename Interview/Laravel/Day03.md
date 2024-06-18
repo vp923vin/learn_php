@@ -386,28 +386,66 @@
 
 <details>
     <summary>
-        Que.
+        Que. Explain the function of Console Kernel.
     </summary>
-    Ans.
+    Ans. In Laravel, the Console Kernel is responsible for handling and managing the Artisan 
+        command-line interface (CLI) and scheduled tasks. It is a key component of Laravel's command 
+        handling and task scheduling system.
+        <br>
+        The Console Kernel is a class named Kernel, which is located in the app/Console directory and extends 
+        the Illuminate\Foundation\Console\Kernel class. The Console Kernel is responsible for the following tasks:
+        <br>
+        <ul>
+            <li>
+                Registering Artisan Commands: In the commands property of the Console Kernel, you'll register all custom   
+                Artisan commands that your application needs. By doing this, the commands become available for use 
+                when invoking Artisan.
+            </li>
+            <li>
+                Scheduling Tasks: The Console Kernel is responsible for scheduling tasks that need to run periodically, 
+                such as data imports, database cleanups, or sending email notifications. You'll define the scheduled 
+                tasks within the schedule method of the Kernel, utilizing Laravel's powerful and expressive task scheduler.
+            </li>
+        </ul>
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. Explain Laravel Vapor?
     </summary>
-    Ans.
+    Ans. Laravel Vapor is a serverless deployment platform built specifically for Laravel applications
+        and powered by AWS Lambda. Laravel Vapor offers a fully managed, scalable, and reliable environment 
+        to deploy and manage Laravel applications without the need to manage servers or infrastructure.
+
+        Vapor takes care of the underlying server management, scaling, and deployment, allowing you to focus 
+        on building your application's features and functionality. Laravel Vapor integrates seamlessly with 
+        popular AWS services, such as RDS, S3, and SQS, to provide a comprehensive ecosystem for supporting 
+        Laravel applications.
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. Explain yield in Laravel?
     </summary>
-    Ans.
+    Ans. In Laravel, yield is a Blade directive used within templates to define placeholders or sections for 
+        content that will be injected later by the child templates or views. It is a key part of Blade's 
+        template inheritance system, allowing you to create master layouts with specific content sections 
+        that can be filled in by the child templates.
+
+        The yield directive is used primarily in layout files or master templates to specify where the content 
+        from the child templates will be injected.
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. What is the process of stopping Artisan service in Laravel?
     </summary>
-    Ans.
+    Ans. If developers are facing any kind of problem with artisan service in Laravel, 
+        the following steps should help to terminate the service.
+
+        Start by pressing Ctrl + Shift + ESC to call up the Windows task manager. 
+        Look for the PHP system walking artisan process and end the process tree. 
+        Then, reopen the command line and restart the server.
+
+        One can also skip using the task manager and try to kill the PHP process by pressing Ctrl+C in the command line.
 </details>
