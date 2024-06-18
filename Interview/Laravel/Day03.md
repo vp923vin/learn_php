@@ -160,86 +160,228 @@
 
 <details>
     <summary>
-        Que. 
+        Que. What are Laravel Policies?
     </summary>
-    Ans.
+    Ans. Laravel policies are classes that streamline authorization logic, dictating the handling of actions within 
+        an application. These policies consolidate the logic within their classes, simplifying the management 
+        and comprehension of authorization rules.<br>
+        Through policies, web developers can specify which users have authorization to perform particular actions, 
+        like updating a post or deleting a comment. These policies are then associated with specific models for 
+        granting precise control over user permissions.<br>
+        Moreover, Laravel policies offer a convenient means of authorizing actions in controllers. 
+        That guarantees that only authorized users can carry out specific tasks. In summary, Laravel policies 
+        play an essential role in maintaining the security and oversight of user actions within a Laravel application.
+<br>
+        Purpose: <br>
+        You can use Policies to define and implement authorization rules for different resources on the website. 
+        Web development experts can encapsulate the logic that determines if a user can perform a specific action 
+        on a resource.<br>
+        That helps promote code organization and reusability. Policies can handle tasks like determining if a 
+        user can view, create, update, or delete a resource. It can also help enforce access control and manage 
+        user permissions within applications. In essence, Laravel Policies can help define the authorization logic. 
+        That will ensure efficient and effective resource management.
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. How to Create and Register Policies?
     </summary>
-    Ans.
+    Ans. Create a Policy: <br>
+
+        php artisan make:policy YourPolicyName  
+<br>
+        Define Authorization Logic:<br>
+
+        <?php
+            namespace App\Policies;
+            use App\Models\User;
+            use App\Models\Post;
+            class YourPolicyName
+            {
+                public function view(User $user, Post $post)
+                {
+                    // Logic to determine if the user can view the post
+                    return $user->id === $post->user_id;
+                }
+                // Add other authorization methods as needed
+            }
+        ?>
+<br>
+        Register the Policy:<br>
+
+        <?php
+        namespace App\Providers;
+        use App\Models\Post;
+        use App\Policies\YourPolicyName;
+        class AuthServiceProvider extends ServiceProvider
+        {
+            protected $policies = [
+                Post::class => YourPolicyName::class,
+                // Add other model-policy associations as needed
+            ];
+            public function boot()
+            {
+                $this->registerPolicies();
+                // Additional policy registration code, if any
+            }
+        }
+        ?>
+<br>    
+        Apply the Policy in Controller:<br>
+
+        public function show(Post $post)
+        {
+            $this->authorize('view', $post);
+            // Logic to show the post
+        }
+<br>
+
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. What is forge in Laravel?
     </summary>
-    Ans.
+    Ans. Laravel Forge is a server management and deployment platform designed specifically to streamline 
+        the deployment and hosting of Laravel applications. Forge simplifies the provisioning, management, 
+        and monitoring of servers, enabling you to focus on your application's features and functionality 
+        rather than server configuration and maintenance tasks.
+
+        Forge provides an intuitive interface for deploying and managing Laravel applications on popular 
+        Infrastructure as a Service (IaaS) providers like AWS, DigitalOcean, Linode, or custom VPS providers.
+
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. How can you use Laravel's container to bind an interface to a concrete implementation?
     </summary>
-    Ans.
+    Ans. In Laravel, you can bind an interface to a concrete implementation using the Service Container's bind method.
+        This enables dependency injection and makes the application more extensible and testable. Here's an example:<br>
+        <img src="./asset/bind-interface.png" alt="bind-interface">
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. Explain how to create and dispatch jobs in Laravel with delayed execution?
     </summary>
-    Ans.
+    Ans. To create a job in Laravel, first, run `php artisan make:job ProcessTask`. 
+        This command will generate a Job class in app/Jobs/. 
+        Edit the handle method to include the job's logic. 
+        To dispatch a job with delayed execution, use the dispatch function with the delay method. For example:<br>
+        <img src="./asset/dispatch-jobs.png" alt="dispatch-jobs">
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. How do you create a middleware in Laravel that checks for a specific HTTP header?
     </summary>
-    Ans.
+    Ans. To create a middleware in Laravel, first, run the command `php artisan make:middleware CheckHttpHeader`. 
+        This will generate a middleware class in app/Http/Middleware. Edit the handle method with the HTTP 
+        header check logic:<br>
+        <img src="./asset/middleware-create.png" alt="middleware-create"><br>
+        Then, register the middleware in the app/Http/Kernel.php file and use it in your routes.
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. Explain how to define two different authentication guard systems in Laravel?
     </summary>
-    Ans.
+    Ans. To define two different authentication guards, you should edit the config/auth.php configuration file.
+        Add new guards and providers specific to the different authentication methods. For example:<br>
+        <img src="./asset/guards.png" alt="guards">
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. Explain how to implement rate limiting for certain routes in Laravel?
     </summary>
-    Ans.
+    Ans.To implement rate limiting in Laravel, edit the app/Http/Kernel.php file to add 
+        ThrottleRequests middleware to the $routeMiddleware array:<br>
+        <img src="./asset/throttle1.png" alt="throttle1"><br>
+        Then, apply the throttle middleware to the desired routes in your route definition files, specifying the rate limit and the time interval:<br>
+        <img src="./asset/throttle2.png" alt="throttle2">
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. Explain the process of making a constant for global use.
     </summary>
-    Ans.
+    Ans. Developers can create constant.php pages directly in the config folder if not available already. 
+        Enter a constant variable with a corresponding value and use the command
+
+        Config::get('constants.VaribleName');
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. What is the process of extending login time in Auth?
     </summary>
-    Ans.
+    Ans. Extending the login expiration time on Laravel is pretty easy and can be done with the 
+        config\session.php. Developers only need to update the lifetime value mentioned in the variable. 
+        The value of the variable usually is set to 120 by default, which can be altered based on requirements.
+
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. Explain throttling and how to implement it in Laravel.
     </summary>
-    Ans.
+    Ans. In Laravel, throttling is a perfect approach for rate-limiting requests from specific 
+        IPs and is also capable enough to prevent DDOS attacks. The framework also provides a middleware 
+        that is compatible with not just routes but global middleware as well. Developers can configure throttling 
+        following the steps.<br>
+        You can implement throttling as below:<br>
+        <img src="./asset/throttle3.png" alt="throttle3">
 </details>
 
 <details>
     <summary>
-        Que.
+        Que. What is Nova?
     </summary>
-    Ans.
+    Ans. Laravel Nova is an administration panel for Laravel applications, developed and maintained by the Laravel team. 
+        Nova is a beautifully designed, highly customizable, and powerful admin dashboard that allows 
+        you to manage your application's data and resources with minimal effort.<br>
+        Nova is designed to work seamlessly with your existing Laravel application, using your existing 
+        Eloquent models and relationships to generate a complete administration panel without writing 
+        any additional code.
+        <br>
+        Some key features of Laravel Nova include:
+        <br>
+        Resource Management: 
+        <br>
+        Nova automatically generates admin panels for managing Eloquent models and their relationships, 
+        enabling you to create, read, update, and delete records directly from the panel.
+        <br>
+        Actions:
+        <br> 
+        Perform custom actions on model resources through the admin panel, such as bulk updates, 
+        exporting data, or running admin-specific tasks.
+        <br>
+        Filters:
+        <br> 
+        Create custom filters to narrow down the display of model records in the admin panel based 
+        on specific conditions or attributes.
+        <br>
+        Metrics:
+        <br> 
+        Display various data metrics, such as value, trend, and partition charts, on the dashboard 
+        to get insights into your application's data.
+        <br>
+        Lenses:
+        <br>
+        Use lenses to create custom data views for your resources, allowing you to display and query data 
+        differently than in the default resource views.
+        <br>
+        Customization: 
+        <br> 
+        Easily extend and customize the appearance and functionality of the admin panel,
+        making it adaptable to your project's specific requirements.
+        <br>
+        Authorization: 
+        <br>
+        Integrates with Laravel's built-in policy system to secure your admin panel, providing fine-grained 
+        access control for different user roles.
 </details>
 
 <details>
